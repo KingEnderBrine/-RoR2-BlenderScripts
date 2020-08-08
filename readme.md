@@ -4,3 +4,5 @@ The main usage for this is creating skins with custom models for vanilla charact
 
 For now, there's no script for `Huntress` I have some issues with it.
 Also, I will definitely add Engi turrets later.
+
+You can read the guide on how to use these scripts [here](https://github.com/KingEnderBrine/-RoR2-BlenderScripts/wiki)
