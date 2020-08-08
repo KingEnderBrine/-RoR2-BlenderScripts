@@ -70,8 +70,3 @@ Last step you simply press `run script` button:
 Now you can switch back to the `Layout` tab, you should see the end result:
 
 ![](/GuideScreenshots/EndResult.jpg?raw=true)
-
-# Creation of skin with custom model
-## Blender
-## Unity
-## Visual studio
