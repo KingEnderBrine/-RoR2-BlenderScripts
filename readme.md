@@ -24,14 +24,17 @@ Also, I will definitely add Engi turrets later.
 For ripping assets use [AssetStudio](https://github.com/Perfare/AssetStudio/releases/tag/v0.14.0).
 
 Once you have launched AssetStudio you should load RoR2 folder in it and you will be present with something like this:
-![](/GuidScreenshots/OpenAssetStudio.jpg?raw=true)
+
+![](/GuideScreenshots/OpenAssetStudio.jpg?raw=true)
 
 Find and select assets of characters that you want:
-![](/GuidScreenshots/SelectAssets.jpg?raw=true)
+
+![](/GuideScreenshots/SelectAssets.jpg?raw=true)
 
 Here's the table of asset names for characters:
 
 | Character name | Asset name   |
+|:--------------:|:------------:|
 | Acrid          | CrocoBody    |
 | Artificer      | MageBody     |
 | Commando       | CommandoBody |
@@ -43,24 +46,30 @@ Here's the table of asset names for characters:
 | Rex            | TreebotBody  |
 
 Export assets as FBX files:
-![](/GuidScreenshots/ExportAssets.jpg?raw=true)
+
+![](/GuideScreenshots/ExportAssets.jpg?raw=true)
 
 AssetStudio will open folder once it's done exporting:
-![](/GuidScreenshots/AssetsFolder.jpg?raw=true)
+
+![](/GuideScreenshots/AssetsFolder.jpg?raw=true)
 
 ## Blender
 Open blender, create a new file (it's important as a script can corrupt other things it there are any), and clear the scene from default stuff.
 Now import FBX file of a character:
-![](/GuidScreenshots/ImportFBX.jpg?raw=true)
 
-Then you go to the `Scripting` tab and open `Fix` file for a character you selected:
-![](/GuidScreenshots/ScriptingTab.jpg?raw=true)
+![](/GuideScreenshots/ImportFBX.jpg?raw=true)
+
+Then you go to the `Scripting` tab and open `Fix Character.py` file for a character you selected:
+
+![](/GuideScreenshots/ScriptingTab.jpg?raw=true)
 
 Last step you simply press `run script` button:
-![](/GuidScreenshots/RunScript.jpg?raw=true)
+
+![](/GuideScreenshots/RunScript.jpg?raw=true)
 
 Now you can switch back to the `Layout` tab, you should see the end result:
-![](/GuidScreenshots/EndResult.jpg?raw=true)
+
+![](/GuideScreenshots/EndResult.jpg?raw=true)
 
 # Creation of skin with custom model
 ## Blender
