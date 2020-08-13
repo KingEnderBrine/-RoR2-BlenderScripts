@@ -17,6 +17,7 @@ meshSpecificScale = {'CaptainGunArm': (0.55, 0.55, 0.55)} # {'TesMesh': (1, 1, 1
 excessiveMeshes = [] # ['TestMesh']
 
 applyRestToPose = False
+scaleOnPrepare = False
 
 
 
@@ -95,7 +96,7 @@ def Prepare(srcArmName):
     srcArm.rotation_euler = (radians(90), 0, -roll)
     srcArm.scale = (1,1,1)
 
-def PrepareMeshes(srcMeshName, meshParentBones, scale = None, meshOffset = None, meshSpecificScale = None, meshSpecificOffset = None):
+def PrepareMeshes(srcMeshName, meshParentBones, meshOffset = None, meshSpecificOffset = None):
     srcMesh = bpy.data.objects[srcMeshName]
     bpy.context.view_layer.objects.active = srcMesh
     bpy.ops.object.mode_set(mode='OBJECT')
@@ -105,11 +106,6 @@ def PrepareMeshes(srcMeshName, meshParentBones, scale = None, meshOffset = None,
     for obj in bpy.data.objects:
         if obj.type != 'MESH':
             continue
-        
-        if meshSpecificScale is not None and obj.name in meshSpecificScale:
-            obj.scale = meshSpecificScale[obj.name]
-        elif scale is not None:
-            obj.scale = scale
                 
         if not obj.parent_bone:
             obj.location -= offset
@@ -232,13 +228,33 @@ def Finalize():
     for obj in bpy.data.objects:
         bpy.ops.object.transform_apply(location = True, scale = False, rotation = True)
 
+def ScaleMeshes(srcMeshName, scale = None, meshSpecificScale = None):
+    srcMesh = bpy.data.objects[srcMeshName]
+    bpy.context.view_layer.objects.active = srcMesh
+    bpy.ops.object.mode_set(mode='OBJECT')
+    
+    offset = Vector(srcMesh.location)
+    
+    for obj in bpy.data.objects:
+        if obj.type != 'MESH':
+            continue
+        
+        if meshSpecificScale is not None and obj.name in meshSpecificScale:
+            obj.scale = meshSpecificScale[obj.name]
+        elif scale is not None:
+            obj.scale = scale
+
 meshParentBones = {}
 
 RemoveExcessiveMeshes(excessiveMeshes)
 Prepare(srcArmName)
-PrepareMeshes(srcMeshName, meshParentBones, meshesScale, meshOffset, meshSpecificScale, meshSpecificOffset)
+PrepareMeshes(srcMeshName, meshParentBones, meshOffset, meshSpecificOffset)
+if scaleOnPrepare:
+    ScaleMeshes(srcMeshName, meshesScale, meshSpecificScale)
 PrepareBones(bonesOrder, srcArmName)
 FinalizeBones(bonesOrder, srcArmName)
 FinalizeMeshes(meshParentBones)
 FinalizePose(srcArmName, applyRestToPose)
 Finalize()
+if not scaleOnPrepare:
+    ScaleMeshes(srcMeshName, meshesScale, meshSpecificScale)
