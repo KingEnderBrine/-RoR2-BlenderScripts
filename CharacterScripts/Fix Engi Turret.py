@@ -4,7 +4,7 @@ from math import radians
 from mathutils import Vector
 
 
-bonesOrder = ['Base', 'Neck', 'Head', 'Head_end', 'HandR', 'Muzzle', 'HandL', 'legJoint.1', 'legBar.1', 'toe.1', 'toe.1_end', 'legJoint.2', 'legBar.2', 'toe.2', 'toe.2_end', 'legJoint.3', 'legBar.3', 'toe.3', 'toe.3_end', 'footIK.1', 'footIK.1_end', 'footIK.2', 'footIK.2_end', 'footIK.3', 'footIK.3_end']
+bonesOrder = ['footIK.1', 'footIK.2', 'footIK.3', 'Base', 'legJoint.1', 'legBar.1', 'toe.1', 'legJoint.2', 'legBar.2', 'toe.2', 'legJoint.3', 'legBar.3', 'toe.3', 'Neck', 'Head']
 
 srcArmName = 'Armature'
 srcMeshName = 'EngiTurretMesh'
